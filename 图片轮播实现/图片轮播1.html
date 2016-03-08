@@ -95,21 +95,16 @@
    var oBtnRight = document.getElementById("btnRight");
 
    var baseWidth = aLi[0].offsetWidth;
-   //alert(baseWidth);
    oUl[0].style.width = baseWidth * aLi.length + "px";
    var iNow = 0;
    for(var i=0;i<aBtn.length;i++) { 
     aBtn[i].index = i;
     aBtn[i].onclick = function() {
-     //alert(this.index);
-     //alert(oUl[0].style.left);
      move(this.index);
-     //aIco[this.index].className = "active";
     }
    }
    oBtnLeft.onclick = function() {
     iNow ++;
-    //document.title = iNow;
     move(iNow);
    }
    oBtnRight.onclick = function() {
@@ -146,10 +141,6 @@
     }
     aBtn[index].className = "active";
     oUl[0].style.left = -index * baseWidth + "px";
-    //buffer(oUl[0],{
-    // left: -index * baseWidth
-    // },8)
-
    }
   }
   </script>
@@ -158,7 +149,6 @@
  <div id="slide">
   <a id="btnLeft" href="javascript:void(0);" ></a>
   <a id="btnRight" href="javascript:void(0);" ></a>
-  <!--when change next image:style="left: -(n-1)*800px;"-->
   <ul>
    <li><img src="images/1.jpg" alt="" /></li>
    <li><img src="images/2.jpg" alt="" /></li>
