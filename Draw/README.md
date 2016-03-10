@@ -4,15 +4,17 @@
 －	[SVG](http://baike.baidu.com/link?url=r1q72s9Mzh20NhSWE_hDhjjm_fzQq_ohCSUeyty74NIH77sgcUFH559CiAPGkSLPM9Jwib8eWJTEHlLmBVTpivNCdh6t7udQBEHm-PHVGR7)
 
 －	[canvas元素](http://www.w3school.com.cn/html5/html5_canvas.asp)
-		一开始，我对两个方法做了一个简单的[基础绘图示例](https://github.com/Lemon23/JavaScript/blob/master/Draw/基础绘图示例.html)
-		打开这个示例文件，我直观的发现了`SVG`和`canvas元素`的一个重要区别。
-		通过之后的学习和探索，我明白了为什么会出现这种差异，这更引来了我对绘图的好奇心和求知欲。。。
+
+>>>一开始，我对两个方法做了一个简单的[基础绘图示例](https://github.com/Lemon23/JavaScript/blob/master/Draw/基础绘图示例.html)
+>>>打开这个示例文件，我直观的发现了`SVG`和`canvas元素`的一个重要区别。
+>>>通过之后的学习和探索，我明白了为什么会出现这种差异，这更引来了我对绘图的好奇心和求知欲。。。
 
 ###SVG
 >		首先，`SVG`———— 可缩放矢量图形，使用XML格式定义图形，图像再放大或改变尺寸的情况下其图形质量不会有亏损。
 >		SVG这种语法比较庞大并且有一定的复杂度，它不仅可以用于简单的基本图形绘制，还支持任意曲线、文本及动画的绘制。
 >		SVG图形甚至能够整合JavaScript脚本和CSS样式表来添加行为和展示信息。
 >		我将练习使用客户端JavaScript利用SVG动态绘制图形。
+
 >####NO.1  [使用SVG绘制饼状图](https://github.com/Lemon23/JavaScript/blob/master/Draw/使用SVG绘制饼状图.html)
 >####效果：![](https://github.com/Lemon23/JavaScript/raw/master/Draw/pic/D-1.jpeg)
 >>		该例使用XML语法来处理SVG，使用SVG命名空间以及`createElementNS()`这样的DOM方法而不是`createElement()`。
