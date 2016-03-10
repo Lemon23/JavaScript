@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>使用 “SVG和canvas元素” 绘制图形</title>
+	<meta charset=utf-8 />
+</head>
+<body>
+<h3>使用SVG绘制</h3>
+<p>这是一个红色矩形：<svg width="10" height="10">
+	<rect x="0" y="0" width="10" height="10" fill="red" />
+</svg></p>
+<p>这是一个蓝色圆形：<svg width="10" height="10">
+	<circle cx="5" cy="5" r="5" fill="blue" />
+</svg></p>
+<h3>使用canvas元素绘制</h3>
+<p>这是一个红色矩形：<canvas id="square" width=10 height=10></canvas></p>
+<p>这是一个蓝色圆形：<canvas id="circle" width=10 height=10></canvas></p>
+<script>
+var square = document.getElementById("square"); //获取第一个画布元素
+var context = square.getContext("2d"); //获取2D绘制上下文
+context.fillStyle = "red";
+context.fillRect(0, 0, 10, 10);
+
+var circle = document.getElementById("circle");	 //获取第二个画布元素
+context = circle.getContext("2d");
+context.beginPath(); //开始一条新路径
+context.arc(5, 5, 5, 0, 2*Math.PI, true);
+context.fillStyle = "blue";
+context.fill(); //填充路径
+</script>
+</body>
+</html>
