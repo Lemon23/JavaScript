@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>使用canvas绘制多边形</title>
+	<meta charset=utf-8 />
+</head>
+<body>
+<canvas id="polygon" width=1000 height=400></canvas>
+
+<script>
+/* 
+	参数：
+		n：图形边的个数
+		x，y：定义多边形中心
+		r：多边形半径
+		count：定义方向，参数是true，表示逆时针旋转。
+ */
+var canvas = document.getElementById("polygon");
+var c = canvas.getContext('2d');
+function  polygon(c, n, x, y, r, angle, count) {
+	angle = angle || 0;
+	count = count || false;
+	c.moveTo(x + r*Math.sin(angle), y- r*Math.cos(angle));
+	var total = 2*Math.PI/n;	//两个顶点之间的夹角
+	for(var i = 1; i < n; i++) {
+		angle += count?-total:total;	//判断旋转角度
+		c.lineTo(x + r*Math.sin(angle), y - r*Math.cos(angle));
+	}
+	c.closePath();	//连接终点和起点
+}
+c.beginPath();
+polygon(c, 3, 50, 70, 50);					//三角形
+polygon(c, 4, 150, 60, 50, Math.PI/4);		//正方形
+polygon(c, 5, 255, 60, 50);					//五边形
+polygon(c, 4, 150, 60, 20, Math.PI/4, true);//正方形中的正方形
+
+c.fillStyle = "#ccc";
+c.strokeStyle = "#oo8";
+c.lineWidth = 3;
+
+c.fill();		//填充图形
+c.stroke();		//勾勒边框
+</script>
+</body>
+</html>

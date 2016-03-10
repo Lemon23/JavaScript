@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>使用canvas裁剪和填充功能的实现</title>
+	<meta charset=utf-8 />
+</head>
+<body>
+<canvas id="ck" width=800 height=800></canvas>
+<script>
+var canvas = document.getElementById("ck");
+var c = canvas.getContext('2d');
+function  polygon(c, n, x, y, r, angle, count) {
+	angle = angle || 0;
+	count = count || false;
+	c.moveTo(x + r*Math.sin(angle), y- r*Math.cos(angle));
+	var total = 2*Math.PI/n;	//两个顶点之间的夹角
+	for(var i = 1; i < n; i++) {
+		angle += count?-total:total;	//判断旋转角度
+		c.lineTo(x + r*Math.sin(angle), y - r*Math.cos(angle));
+	}
+	c.closePath();	//连接终点和起点
+}
+//定义绘制属性
+c.font = "bold 60pt sans-serif";
+c.lineWidth = 2;
+c.strokeStyle = "#aab"
+
+//添加阴影效果
+c.shadowColor = "rgba(45, 50, 60, 5)";	//指定阴影颜色
+c.shadowOffsetX = c.shadowOffsetY = 3;	//指定阴影的偏移量
+c.shadowBlur = 5;						//指定阴影边缘的模糊程度
+
+c.strokeRect(175, 25, 50, 325);		//定义中间竖直长方形
+c.strokeText("DRAWING", 15, 240);	//定义文字，使用strokeText()方法而不是fillText()方法。
+
+//绘制大小两个三角形
+polygon(c, 3, 200, 225, 175);
+polygon(c, 3, 200, 225, 95, 0, true);
+c.clip();	//将该路径定义为剪裁区域
+c.lineWidth = 10;
+c.stroke();
+
+//填充剪裁区域
+c.fillStyle = "#CCBBFF"
+c.fillRect(175, 25, 50, 325);
+c.fillStyle = "#FFB3FF"
+c.fillText("DRAWING", 15, 240)
+
+</script>
+</body>
+</html>
